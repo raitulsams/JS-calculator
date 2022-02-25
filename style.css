@@ -1,6 +1,6 @@
-*, *::before, *::after{
+*{
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: Helvetica;
     font-weight: normal;
 }
 body{
@@ -22,20 +22,25 @@ body{
     cursor: grab;
     font-size: 2rem;
     border: 1px solid rgb(255, 255, 255);
-    /* outline: none; */
-    background-color: rgba(141, 124, 124, 0.65);
+    background-color: rgba(151, 151, 151, 0.65);
+    border-radius: 5px;
     
 }
 .calculator-grid >button:hover{
     background-color: rgb(255, 255, 255);
-    transform: scale(1.07);
-    transition: transform 0.9s;
+    transition: 0.2s;
+
+}
+.calculator-grid >button:active{
+    background-color: rgb(255, 0, 0, .55);
+    /* box-shadow: 0 -5px #666; */
+    /* transform: translateY(1px);   */
 }
 .span-two{
     grid-column: span 2;
 }
 #output{
-    grid-column: 1 / -1;
+  grid-column: 1 / -1;
   background-color: rgba(0, 0, 0, .75);
   color: white;
   display: flex;
@@ -45,11 +50,13 @@ body{
   padding: 10px;
   word-wrap: break-word;
   word-break: break-all;
+  border-radius: 5px;
 }
-.output .previous-operand{
+#output .previous-operand{
     color: rgba(255, 255, 255, .75);
+    font-size: 1.5rem;
 }
-.output .current-operand{
+#output .current-operand{
     color: white;
     font-size: 2.5rem;
 }
