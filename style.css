@@ -33,10 +33,11 @@ body{
 }
 .calculator-grid >button:active{
     background-color: rgb(255, 0, 0, .55);
+    color: white;
     /* box-shadow: 0 -5px #666; */
     /* transform: translateY(1px);   */
 }
-.span-two{
+#span-two{
     grid-column: span 2;
 }
 #output{
