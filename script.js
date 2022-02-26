@@ -11,7 +11,7 @@ class Calculator {
     }
 
     delete() {
-
+        this.currentOperand = this.currentOperand.toString().slice(0, -1)
     }
 
     appendNumber(number) {
@@ -57,7 +57,11 @@ class Calculator {
 
     updateDisplay() {
         this.currentOperandTextElement.innerText = this.currentOperand
-        this.previousOperandTextElement.innerText = this.previousOperand
+        if (this.operation != null) {
+            this.previousOperandTextElement.innerText = `${this.previousOperand} ${this.operation}`
+        } else {
+            this.previousOperandTextElement.innerText = ''
+        }
     }
 
 
@@ -89,12 +93,17 @@ operationButtons.forEach(button => {
 })
 
 equalsButton.addEventListener("click", button => {
-    console.log('clicked')
+    // console.log('clicked')
     calculator.compute()
     calculator.updateDisplay()
 })
 
 allClearButton.addEventListener("click", button => {
+    calculator.clear()
+    calculator.updateDisplay()
+})
+
+deleteButton.addEventListener("click", button => {
     calculator.clear()
     calculator.updateDisplay()
 })
